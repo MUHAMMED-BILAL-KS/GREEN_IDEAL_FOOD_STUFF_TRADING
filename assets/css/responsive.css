@@ -1,6 +1,7 @@
-/*==================================
+/*================================================================
 * Responsive Styles Override: Green Ideal Food Stuff Trading LLC
-==================================== */
+* Addresses Mobile Compatibility, Collapsible Header, and Layouts
+================================================================== */
 
 @media screen and (max-width: 1200px) {
     .welcome-hero-txt h2 {
@@ -12,154 +13,307 @@
 }
 
 @media screen and (max-width: 991px) {
-    /* Navbar Collapse Styling overrides */
-    nav.navbar.bootsnav .navbar-header a.navbar-brand {
-        padding: 20px 0;
+    /* --- Modern Flexbox Header Layout for Mobile --- */
+    nav.navbar.bootsnav .navbar-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 10px 20px !important;
+        float: none !important;
+        height: 70px !important;
     }
     
+    /* Swap order so logo is left and toggle is right */
+    nav.navbar.bootsnav .navbar-brand {
+        order: 1 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        float: none !important;
+        font-size: 15px !important; /* Scale brand text for mid-size screens */
+        font-weight: 800 !important;
+        line-height: 50px !important;
+        display: inline-block !important;
+        max-width: 75% !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    
+    nav.navbar.bootsnav .navbar-toggle {
+        order: 2 !important;
+        float: none !important;
+        margin: 0 !important;
+        position: relative !important;
+        top: 0 !important;
+        display: inline-block !important;
+        padding: 8px 12px !important;
+    }
+    
+    /* Collapsible Navigation Menu */
     nav.navbar.bootsnav .navbar-collapse.collapse.in {
-        padding-bottom: 20px;
-        background: var(--white);
-        border-top: 1px solid rgba(0,0,0,0.05);
+        display: block !important;
+        background: var(--white) !important;
+        border-top: 1px solid rgba(0,0,0,0.05) !important;
+        box-shadow: var(--shadow-lg) !important;
+        border-bottom: 4px solid var(--primary) !important;
+        padding: 10px 0 !important;
     }
     
     nav.navbar.bootsnav ul.nav > li > a {
-        padding: 12px 20px;
-        border-bottom: 1px solid rgba(0,0,0,0.02);
+        padding: 15px 24px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        color: var(--secondary) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04) !important;
+        text-align: left !important;
+    }
+    
+    nav.navbar.bootsnav ul.nav > li:last-child > a {
+        border-bottom: none !important;
+    }
+    
+    nav.navbar.bootsnav ul.nav > li > a:hover,
+    nav.navbar.bootsnav ul.nav > li.active > a {
+        background-color: var(--primary-light) !important;
+        color: var(--primary) !important;
     }
     
     .welcome-hero {
-        height: 600px;
+        height: 550px;
     }
     
     .welcome-hero-txt h2 {
-        font-size: 32px;
+        font-size: 30px;
     }
     
     .section-header h2 {
-        font-size: 28px;
+        font-size: 26px;
     }
     
     .footer-menu-item {
         justify-content: center;
         margin-top: 20px;
         text-align: center;
+        flex-wrap: wrap;
     }
 }
 
 @media screen and (max-width: 767px) {
+    /* Brand logo text scale for mobile devices */
+    nav.navbar.bootsnav .navbar-brand {
+        font-size: 14px !important;
+        max-width: 70% !important;
+    }
+
     .welcome-hero {
-        height: auto;
-        padding: 120px 0 100px;
+        height: auto !important;
+        padding: 110px 0 80px !important;
     }
     
     .welcome-hero-txt {
-        padding: 0 15px;
+        padding: 0 15px !important;
     }
     
     .welcome-hero-txt h2 {
-        font-size: 26px;
-        line-height: 1.4;
+        font-size: 24px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 15px !important;
     }
     
     .welcome-hero-txt p {
-        font-size: 15px;
+        font-size: 15px !important;
+        line-height: 1.7 !important;
     }
     
+    /* Center Company Logo on mobile without overlapping */
     .list-topics {
-        margin-top: -40px;
-        margin-bottom: 40px;
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
+    }
+    
+    .list-topics-content ul {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
     }
     
     .single-list-topics-content {
-        max-width: 280px;
+        max-width: 280px !important;
+        margin: 0 auto !important;
+        padding: 16px !important;
+    }
+
+    .single-list-topics-content img {
+        max-height: 80px !important;
+    }
+    
+    /* Gallery slider overflow prevention */
+    .reviews-content {
+        overflow: hidden !important;
+        width: 100% !important;
+        padding: 0 10px !important;
+    }
+    
+    /* Testimonial slider boxes on mobile */
+    .single-testimonial-box {
+        padding: 30px 20px !important;
+        margin: 15px 5px !important;
+        width: auto !important;
+        max-width: 100% !important;
+        display: block !important;
+        box-shadow: var(--shadow-sm) !important;
+    }
+
+    /* Team image absolute ratios for compatibility */
+    .single-blog-item-img {
+        position: relative !important;
+        width: 100% !important;
+        padding-top: 100% !important; /* 1:1 square */
+        overflow: hidden !important;
+    }
+
+    .single-blog-item-img img {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    /* Product image ratio robustness */
+    .single-explore-img {
+        position: relative !important;
+        width: 100% !important;
+        padding-top: 75% !important; /* 4:3 Aspect Ratio */
+        overflow: hidden !important;
+    }
+
+    .single-explore-img img {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
     }
     
     /* Subscription form stacks vertically on mobile */
     .subscription-input-group {
-        padding: 0 15px;
+        padding: 0 15px !important;
     }
     
     .subscription-input-group form {
-        flex-direction: column;
-        background: transparent;
-        box-shadow: none;
-        border: 0;
-        gap: 12px;
+        flex-direction: column !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: 0 !important;
+        gap: 12px !important;
     }
     
     .subscription-input-form {
-        background: var(--white);
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        border-radius: 30px;
-        width: 100%;
-        text-align: center;
-        box-shadow: var(--shadow-sm);
+        background: var(--white) !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        border-radius: 30px !important;
+        width: 100% !important;
+        text-align: center !important;
+        box-shadow: var(--shadow-sm) !important;
     }
     
     .appsLand-btn {
-        width: 100%;
-        border-radius: 30px;
-        box-shadow: var(--shadow-md);
+        width: 100% !important;
+        border-radius: 30px !important;
+        box-shadow: var(--shadow-md) !important;
     }
     
+    /* Fluid styling for Cards on Mobile (No static overflows) */
+    .single-explore-item, 
+    .single-blog-item,
+    .contact-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 24px !important;
+    }
+    
+    .contact-card p {
+        word-break: break-all !important;
+        overflow-wrap: break-word !important;
+    }
+
     /* Spacing for sections on mobile */
     .explore, .reviews, .statistics, .blog, .subscription {
-        padding: 60px 0;
+        padding: 50px 0 !important;
     }
     
     .section-header {
-        margin-bottom: 30px;
+        margin-bottom: 25px !important;
     }
     
     .section-header h2 {
-        font-size: 24px;
+        font-size: 22px !important;
     }
     
     /* Center align footer brand and items */
     .footer-menu {
-        text-align: center;
+        text-align: center !important;
     }
     
     .footer-menu .navbar-brand {
-        display: inline-block;
-        margin-bottom: 15px;
+        display: inline-block !important;
+        margin-bottom: 15px !important;
     }
     
     .footer-menu-item {
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
+        flex-direction: column !important;
+        gap: 12px !important;
+        align-items: center !important;
     }
     
     .footer-menu-item li a {
-        padding: 5px 0;
-    }
-    
-    /* Cards spacing */
-    .single-explore-item, 
-    .single-blog-item,
-    .contact-card {
-        max-width: 380px;
-        margin-left: auto;
-        margin-right: auto;
+        padding: 5px 0 !important;
     }
     
     .map-container iframe {
-        height: 280px !important;
+        height: 250px !important;
     }
 }
 
 @media screen and (max-width: 480px) {
+    /* Scale brand text down for small phones to avoid wrapping */
+    nav.navbar.bootsnav .navbar-brand {
+        font-size: 12px !important;
+        max-width: 65% !important;
+    }
+
     .welcome-hero-txt h2 {
-        font-size: 22px;
+        font-size: 20px !important;
+        letter-spacing: 0.5px !important;
+    }
+    
+    .welcome-hero-txt p {
+        font-size: 14px !important;
     }
     
     .statistics-content {
-        font-size: 36px;
+        font-size: 36px !important;
     }
     
     .single-ststistics-box h3 {
-        font-size: 14px;
+        font-size: 14px !important;
+    }
+
+    .single-ststistics-box {
+        margin-bottom: 15px !important;
+        padding: 20px 10px !important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    nav.navbar.bootsnav .navbar-brand {
+        font-size: 10px !important;
+        max-width: 58% !important;
     }
 }

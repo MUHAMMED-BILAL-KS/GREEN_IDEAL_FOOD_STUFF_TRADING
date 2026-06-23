@@ -680,8 +680,12 @@ nav.navbar.bootsnav .navbar-toggle i {
 /*----------- 10. Footer -----------*/
 .footer {
     background-color: var(--secondary);
-    color: #94a3b8;
+    color: #cbd5e1;
     padding: 60px 0 40px;
+}
+
+.footer p {
+    color: #cbd5e1 !important; /* Force high contrast light slate color on dark footer */
 }
 
 .footer-menu {
@@ -689,15 +693,20 @@ nav.navbar.bootsnav .navbar-toggle i {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.footer-menu .navbar-brand {
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--white);
-    text-transform: uppercase;
+.footer .navbar-header a.navbar-brand,
+.footer .navbar-header a.navbar-brand:hover,
+.footer .navbar-header a.navbar-brand:focus {
+    color: var(--white) !important;
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    padding: 0 !important;
+    height: auto !important;
+    line-height: normal !important;
 }
 
 .footer-menu .navbar-brand span {
-    color: var(--primary);
+    color: var(--primary) !important;
 }
 
 .footer-menu-item {
@@ -708,7 +717,7 @@ nav.navbar.bootsnav .navbar-toggle i {
 }
 
 .footer-menu-item li a {
-    color: #94a3b8;
+    color: #cbd5e1;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 600;
